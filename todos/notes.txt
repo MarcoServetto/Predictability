@@ -81,3 +81,10 @@ Then, with slow painful iterations we can grow the set of situations where the c
 Predictability is a compositional property: putting together predictable code you should get more predictable code
 Crucially, growing the set of working situations is not compositional.
 Add some example here. (fixed zip?) The slow painful iterations have to be repeated when new code logic is added.
+
+
+
+Inference via elaboration, not as part of the type system
+This is an interesting way where, I argue, the language can get more predictable.
+In some languages type inference allows for program that do pass with inference to not be annotatable in any way that makes them pass without relying on inference. Those languages could be simpler then an simialar
+more predictable language where the syntax is rich enough to express all that the inference can deduce.
