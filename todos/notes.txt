@@ -1,0 +1,83 @@
+title: Predictability
+
+Predictable programming
+compare with
+offensive programming
+defensive programming
+formal verification
+functional programming mindset
+difference between simplicity and predictability
+
+Core examples:
+Math.abs on Int.minInt
+Fully well specified, formally verified, simple enough, still not predictable
+
+
+Portability:
+adapting to the current environment
+vs
+forcing the same behaviour on all environments
+Two very different kinds of 'portability', only one is predictable
+
+forcing the same behaviour on all environments vs
+forcing isomorphic behaviour on all environments
+(see the gui two states instead of four)
+
+examples: File system.
+-avoid win restricted names
+-force all files lowercase and ...
+-independent file bubbles: not contained into each other
+
+examples: Gui (see what we do now, fonts, the 4 states etc, accepting new aspect ratio with no knowledge of screen size)
+
+
+Unobservable parallelism
+Unobservable caching
+Unobservable invariants
+Unobservable continuations (python style)
+Strong exception safety
+All true forms of predictability; strong temptation to allow observability.
+Crucial interactions with strong exc safety det and non det exceptions.
+
+
+simplicity vs predictability:
+Flows design, multiple methods for something that looks samy.
+-two kinds of forEach
+-errors for 'unpredictable' shapes, with ways to suppress them.
+Clearly 'simpler' to not expose any of those problems to the user.
+
+On a rare corner case:
+Simple->hide the existence of the corner case until it manifests
+Predictable->scream the existence of the corner care even lauder since it is rare.
+
+
+Predictable != can never observe the OS details.
+But... it needs to be only doing it in clearly designed situations.
+OC should be designed to make propagation of those observability skills very obvious.
+Most code should not be able to probe if it is running on win or on linux, for example.
+
+The importance of naming conventions
+(softXX,getXX,etc)
+
+
+Functional programming, defensive vs offensive mindset
+compare
+zip function
+vs
+Floating point Nan behaviour.
+They are both defensive. They are both non predictable.
+Predictable failure is better then simpler formalisation of the behaviour.
+
+Predictable behaviour is not behaviour that is mathematically simple.
+It is behaviour that is mathematically USEFUL. Other code logic relying on that behaviour can be simple while propagating predictable behaviour to its users. This seems to be an inductive argument across chains of API->Client.
+
+
+Predictability  != predictably works.
+If you want predictably working software you will have
+software that neither works, nor is predictable.
+
+What we can have is software that predictably either works or explains why it can not.
+Then, with slow painful iterations we can grow the set of situations where the code works.
+Predictability is a compositional property: putting together predictable code you should get more predictable code
+Crucially, growing the set of working situations is not compositional.
+Add some example here. (fixed zip?) The slow painful iterations have to be repeated when new code logic is added.
